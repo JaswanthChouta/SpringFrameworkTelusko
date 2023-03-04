@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--These links are to provide definitions for the tags we use in xml-->
+<!--For BeanDefinitionStoreException:IOException Parsing XML Document From Class Path Resource[file name]: The solution-->
+<!-- is create the file and to place it under the /src/main/resources directory of the project – this-->
+<!--way, the file will exist on the classpath and it will be found and used by Spring-->
+
+<!--For XML based Config-->
+<!--<beans xmlns = "http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation = "http://www.springframework.org/schema/beans-->
+<!--       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">-->
+
+<!--    <bean id="vehicle" class = "org.example.AppContextExample.Car"></bean>-->
+<!--</beans>-->
+
+
+
+<!--For using @Component configuration.-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    <context:component-scan base-package="org.example.AppContextExample"></context:component-scan>
+    <bean id="tyre" class="org.example.AppContextExample.Tyre">
+        <property name="brand" value="MRF"></property>
+<!--When you are using property tag you are basically using setter. So when you include property tag, make sure you have setter for that attribute-->
+<!--        <constructor-arg value="CEAT"></constructor-arg>-->
+<!--We can also set attributes using Constructor injection using <constructor-arg> but we should have constructor in class-->
+<!--    If u use both tags at once the first used will be taken ig, uz its like that when I tried    -->
+    </bean>
+</beans>
